@@ -27,7 +27,7 @@ app.get("/api/test",(req,res)=>{
     })
 })
 
-const PORT = 3000
+const PORT = 4000
 
 
 app.listen(PORT,"0.0.0.0",()=>{
