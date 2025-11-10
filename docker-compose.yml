@@ -18,10 +18,25 @@ services:
       - fullstack-net  
     depends_on:
       - backend
-    restart: unless-stopped  
+    restart: unless-stopped 
+  caddy:
+    image: caddy:latest
+    container_name: caddy-server
+    ports:
+      - "80:80" 
+    networks: 
+      - fullstack-net
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+    restart: unless-stopped    
 
 networks:
   fullstack-net:
     driver: bridge
 
+volumes:
+  caddy_data:
+  caddy_config:
 
